@@ -1,0 +1,198 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+body {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(255, 230, 199);
+    display: grid;
+    place-items: center;
+
+}
+
+h1 {
+    font-family: cursive;
+    text-shadow: -25px 20px 40px rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 15rem;
+    bottom: 5rem;
+    font-size: 75px;
+    z-index: 10;
+}
+
+.container {
+    z-index: 8;
+    position: relative;
+    /* top: -10rem; left: 10rem; */
+    border: 1px solid black;
+    border-radius: 0.5rem 65rem;
+    width: 140rem;
+    height: 65rem;
+    background: rgb(0, 145, 220) url(mountain-bg-1.png) repeat-x;
+    background-size: 150rem auto;
+    background-position: 0 65%;
+    display: grid;
+    place-items: center;
+    animation: bgAnim 10s infinite linear;
+}
+@keyframes bgAnim {
+    0% {
+        background-position: 0 100%;
+    }
+    45% {
+        background-position: 70rem 5000%;
+    }
+    75% {
+        background-position: 110rem 100%;
+    }
+    100% {
+        background-position: 150rem 100%;
+    }
+}
+
+.helicopter {
+    width: 80rem;
+    height: 60rem;
+    position: relative;
+    perspective: 100rem;
+    transform: rotateY(-15deg);
+}
+.helicopter div {
+    position: absolute;
+}
+
+.blade {
+    width: 40rem;
+    height: 2rem;
+    background-color: black;
+    left: 20rem;
+    top: 15rem;
+    transform: rotateX(90deg);
+    transform-style: preserve-3d;
+    animation: bladeAnim 0.1s infinite linear;
+}
+@keyframes bladeAnim {
+    0% {
+        transform: rotateX(90deg) rotateZ(0);
+    }
+    100% {
+        transform: rotateX(90deg) rotateZ(360deg);
+    }
+}
+
+.main-rotor {
+    width: 5rem;
+    height: 2rem;
+    background-color: black;
+    left: 17.5rem;
+    transform: rotateX(-90deg);
+    transform-style: preserve-3d;
+}
+.main-rotor::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    transform: rotateY(80deg);
+}
+
+.mast {
+    width: 1rem;
+    height: 2rem;
+    background-color: black;
+    left: 39.5rem;
+    top: 17rem;
+}
+
+.cockpit {
+    width: 20rem;
+    height: 10rem;
+    top: 18.5rem;
+    left: 30rem;
+    background-color: black;
+    border-radius: 50% 40% 40% 40%;
+}
+.cockpit::before {
+    content: "";
+    width: 8rem;
+    height: 5rem;
+    background-color: #ccc;
+    position: absolute;
+    top: 0.2rem;
+    border-radius: 100% 0 40% 0;
+}
+
+.landing-skid {
+    width: 23rem;
+    height: 10rem;
+    border-bottom: 1rem solid black;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-radius: 0 0 2.5rem 5rem;
+}
+.landing-skid-1 {
+    top: 22rem;
+    left: 26rem;
+}
+.landing-skid-2 {
+    top: 20.5rem;
+    left: 26.5rem;
+}
+.landing-skid::before,
+.landing-skid::after {
+    content: "";
+    width: 1rem;
+    height: 5rem;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+}
+.landing-skid::before {
+    left: 8rem;
+}
+.landing-skid::after {
+    left: 18rem;
+}
+
+.tail-cone {
+    width: 25rem;
+    height: 2rem;
+    background-color: black;
+    top: 22rem;
+    left: 47rem;
+    border-radius: 0 100% 100% 0;
+}
+.tail-fin {
+    width: 2rem;
+    height: 8rem;
+    background-color: black;
+    top: 19rem;
+    right: 7.5rem;
+    border-radius: 100% 0 0 100%;
+}
+
+.tail-rotor {
+    width: 1rem;
+    height: 9rem;
+    background-color: black;
+    top: 18.5rem;
+    right: 6.5rem;
+    animation: tailRotorAnim 0.1s infinite linear;
+}
+@keyframes tailRotorAnim {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+        transform: rotateX(360deg);
+    }
+}
